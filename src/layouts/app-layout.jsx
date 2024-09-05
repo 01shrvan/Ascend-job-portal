@@ -20,12 +20,6 @@ const AppLayout = () => {
           </p>
         </div>
         <div className="w-1/2 text-right">
-          <p className="mb-1">
-            Developed by {" "}
-            <span className="text-white font-semibold ">
-              Team Astra!
-            </span>{" "}
-          </p>
           <p className="mt-4">© 2024 Ascend. All rights reserved.</p>
         </div>
       </div>
