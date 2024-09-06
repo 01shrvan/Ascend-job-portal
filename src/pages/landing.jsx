@@ -1,11 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { CarouselPlugin } from "@/components/ui/carousel-plugin";
-import { CollapsibleDemo } from "@/components/ui/collapsible-demo.jsx";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from "@/components/ui/accordion";
 import Heading from "@/components/ui/heading";
-import { Avatar } from "@/components/ui/avatar";
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import { Image } from "@radix-ui/react-avatar";
+import { Card, CardContent } from "@/components/ui/card";
 
 // Steps Data
 const steps = [
@@ -24,19 +27,26 @@ const steps = [
   },
 ];
 
-// Testimonials Data
-const testimonials = [
+// FAQ Data
+const faqs = [
   {
-    quote: "This platform helped me land my dream job! Highly recommend!",
-    author: "Jane Doe",
+    question: "What is this platform about?",
+    answer:
+      "This platform connects job seekers with exclusive job listings tailored to their skills and aspirations.",
   },
   {
-    quote: "A fantastic experience from start to finish!",
-    author: "John Smith",
+    question: "How do I apply for a job?",
+    answer:
+      "You can browse through job listings and submit your application directly through the platform.",
   },
   {
-    quote: "I found my perfect job in just a few clicks!",
-    author: "Emily Johnson",
+    question: "Is there a fee to use this service?",
+    answer: "No, our services are completely free for job seekers.",
+  },
+  {
+    question: "How can I contact support?",
+    answer:
+      "You can reach out to our support team via the contact form on our website.",
   },
 ];
 
@@ -47,7 +57,7 @@ const LandingPage = () => {
       <section className="text-center mt-10">
         <Link to="/" className="flex flex-col items-center">
           <h1
-            className="text-5xl font-extrabold sm:text-6xl md:text-7xl text-gray-800"
+            className="text-5xl font-extrabold sm:text-6xl md:text-7xl text-white"
             style={{ textShadow: "1px 1px 2px rgba(0, 0, 0, 0.1)" }}
           >
             Take Your Career to New Heights
@@ -87,10 +97,10 @@ const LandingPage = () => {
 
       {/* How It Works Section */}
       <section className="mt-10 text-center">
-        <Heading level={2} className="text-3xl font-bold text-gray-800 mb-4">
+        <Heading level={2} className="text-3xl font-bold text-white mb-4">
           How It Works
         </Heading>
-        <p className="mt-2 text-lg text-gray-600 mb-6">
+        <p className="mt-2 text-lg text-white mb-6">
           Follow these simple steps to get started:
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
@@ -100,9 +110,23 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* Collapsible Section */}
+      {/* FAQ Section */}
       <section className="mt-10">
-        <CollapsibleDemo />
+        <h2 className="text-3xl font-bold text-white mb-4">
+          Frequently Asked Questions
+        </h2>
+        <Accordion type="single" collapsible>
+          {faqs.map((faq, index) => (
+            <AccordionItem key={index}>
+              <AccordionTrigger className="text-white">
+                {faq.question}
+              </AccordionTrigger>
+              <AccordionContent className="text-gray-300">
+                {faq.answer}
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
       </section>
     </main>
   );
@@ -112,12 +136,10 @@ const LandingPage = () => {
 const StepCard = ({ step }) => (
   <Card className="flex flex-col h-full p-6 shadow-lg transition-transform duration-300 ease-in-out hover:shadow-xl">
     <CardContent>
-      <h3 className="font-semibold text-lg">{step.title}</h3>
-      <p className="text-gray-600">{step.description}</p>
+      <h3 className="font-semibold text-lg text-white">{step.title}</h3>
+      <p className="text-gray-300">{step.description}</p>
     </CardContent>
   </Card>
 );
-
-// Testimonial Card Component
 
 export default LandingPage;
