@@ -13,11 +13,7 @@ const Header = () => {
       <Link to="/" className="">
         <img src="/logo.png" alt="Ascend logo" className="h-8" />
       </Link>
-
-      <Button variant="outline">
-        Login
-      </Button>
-      {/* <div className="flex items-center">
+      <div className="flex items-center">
         <SignedOut>
           <Button variant="outline">
             <SignInButton />
@@ -26,7 +22,7 @@ const Header = () => {
         <SignedIn>
           <UserButton />
         </SignedIn>
-      </div> */}
+      </div>
     </nav>
   );
 };
