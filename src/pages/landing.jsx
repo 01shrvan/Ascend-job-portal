@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import { CarouselPlugin } from "@/components/ui/carousel-plugin";
 import {
   Accordion,
+  AccordionContent,
   AccordionItem,
   AccordionTrigger,
-  AccordionContent,
-} from "@/components/ui/accordion";
+} from "@/components/ui/accordion"
 import Heading from "@/components/ui/heading";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -116,16 +116,14 @@ const LandingPage = () => {
           Frequently Asked Questions
         </h2>
         <Accordion type="single" collapsible>
-          {faqs.map((faq, index) => (
-            <AccordionItem key={index}>
-              <AccordionTrigger className="text-white">
-                {faq.question}
-              </AccordionTrigger>
-              <AccordionContent className="text-gray-300">
-                {faq.answer}
-              </AccordionContent>
-            </AccordionItem>
-          ))}
+          {
+            faqs.map((faq, index) => (
+              <AccordionItem value={`item-${index}`} key={index}>
+                <AccordionTrigger>{faq.question}</AccordionTrigger>
+                <AccordionContent>{faq.answer}</AccordionContent>
+              </AccordionItem>
+            ))
+          }
         </Accordion>
       </section>
     </main>
