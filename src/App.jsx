@@ -10,6 +10,7 @@ import SavedJobs from "./pages/saved-job";
 import MyJobs from "./pages/my-jobs";
 import { ThemeProvider } from "./components/ui/theme-provider";
 
+
 const router = createBrowserRouter([
   {
     element: <AppLayout />,
